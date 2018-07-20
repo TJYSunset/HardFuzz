@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 using HardFuzz.PlatformInvoke;
 
@@ -10,18 +11,19 @@ namespace HardFuzz.HarfBuzz
     [StructLayout(LayoutKind.Sequential)]
     public struct Feature
     {
-        public Tag Tag;
-        public uint value;
-        public uint start;
-        public uint end;
+        private uint _tag;
+        public uint Value;
+        public uint Start;
+        public uint End;
 
         /// <summary>
         ///     Parses a string into a <see cref="Feature" />.
         /// </summary>
+        /// <exception cref="ArgumentException"></exception>
         public Feature(string name)
         {
             var bytes = Encoding.ASCII.GetBytes(name);
-            Api.hb_feature_from_string(bytes, bytes.Length, out this);
+            if (!Api.hb_feature_from_string(bytes, bytes.Length, out this)) throw new ArgumentException(nameof(name));
         }
 
         /// <inheritdoc />
@@ -38,6 +40,12 @@ namespace HardFuzz.HarfBuzz
             {
                 Marshal.FreeHGlobal(buffer);
             }
+        }
+
+        public Tag Tag
+        {
+            get => new Tag {Value = _tag};
+            set => _tag = value.Value;
         }
     }
 }

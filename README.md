@@ -32,7 +32,7 @@ Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a 
 
 ## Known issue(s)
 
-+ `hb_feature_to_string()` returns random nonsense
++ `hb_feature_from_string()` won't work at all
 + `hb_shape_list_shapers()` is bound using a dirty approach and has potential memory corruption risk
 
 ## Documentation
