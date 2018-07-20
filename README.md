@@ -23,7 +23,7 @@ Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a 
 + [hb-unicode](https://harfbuzz.github.io/harfbuzz-hb-unicode.html)
   + `hb_unicode_funcs_get_default()`
   + `hb_unicode_funcs_destroy()`
-+ [hb-buffer](https://harfbuzz.github.io/harfbuzz-Buffers.html) (most of it's end-user-related part except serialization)
++ [hb-buffer](https://harfbuzz.github.io/harfbuzz-Buffers.html) (most of it's end-user-related part)
 + [hb-font](https://harfbuzz.github.io/harfbuzz-hb-font.html)
 + [hb-shape](https://harfbuzz.github.io/harfbuzz-Shaping.html)
   + `hb_font_destroy()`
@@ -77,7 +77,6 @@ Seriously I failed to understand how the **** HarfBuzz and p/invoke work. Asking
 
 ## To-do
 
-+ (De)serialization
 + Unicode functions
 + Maybe other features if someone asked me
 + Complete XML docs (`<param>` tags etc.)

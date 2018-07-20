@@ -150,6 +150,14 @@ namespace HardFuzz.PlatformInvoke
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
         public static extern void hb_buffer_reverse_clusters(IntPtr buffer);
 
+        [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
+        public static extern uint hb_buffer_serialize_glyphs(IntPtr buffer, uint start, uint end, IntPtr buf,
+            uint buf_size, out uint buf_consumed, IntPtr font, Tag format, SerializeFlags flags);
+
+        [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
+        public static extern bool hb_buffer_deserialize_glyphs(IntPtr buffer, byte[] buf, int buf_len,
+            out IntPtr end_ptr, IntPtr font, Tag format);
+
         // omitted ...serialize_format_(from|to)_string() & ...serialize_list_formats()
 
         // omitted ...segment_properties_(equal|hash)()

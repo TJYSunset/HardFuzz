@@ -235,16 +235,40 @@ namespace HardFuzz.HarfBuzz.Buffer
         ///     Serializes buffer into a textual representation of its glyph content, useful for showing the contents
         ///     of the buffer, for example during debugging. There are currently two supported serialization formats.
         /// </summary>
-        public string Serialize(uint start, uint end, Tag format, SerializeFlags flags, Font.Font font = null)
+        /// <param name="start">the first item in buffer to serialize.</param>
+        /// <param name="end">
+        ///     thought the official manual says it's "the last item in buffer to serialize", it looks more like
+        ///     "actual running length of items to serialize" to me.
+        /// </param>
+        /// <param name="bufferSize">the size of unmanaged buffer for receiving the serialized string.</param>
+        /// <param name="format">the <see cref="SerializeFormat" /> to use for formatting the output.</param>
+        /// <param name="flags">the <see cref="SerializeFlags" /> that control what glyph properties to serialize.</param>
+        /// <param name="font">
+        ///     the <see cref="Font" /> used to shape this buffer, needed to read glyph names and extents. If NULL,
+        ///     and empty font will be used.
+        /// </param>
+        public string Serialize(uint start, uint end, uint bufferSize, Tag format,
+            SerializeFlags flags = SerializeFlags.Default, Font.Font font = null)
         {
-            throw new NotImplementedException();
+            var buffer = Marshal.AllocHGlobal((int) bufferSize);
+            try
+            {
+                Api.hb_buffer_serialize_glyphs(Handle, start, end, buffer, bufferSize, out var consumed,
+                    font?.Handle ?? IntPtr.Zero, format, flags);
+                return Marshal.PtrToStringAnsi(buffer, (int) consumed);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(buffer);
+            }
         }
 
         /// <seealso cref="Serialize" />
-        /// <exception cref="ArgumentException"></exception>
         public void Deserialize(string data, Tag format, Font.Font font = null)
         {
-            throw new NotImplementedException();
+            // todo throw an exception if the return value will indicate unsuccessful deserialization
+            var bytes = Encoding.ASCII.GetBytes(data);
+            Api.hb_buffer_deserialize_glyphs(Handle, bytes, bytes.Length, out _, font?.Handle ?? IntPtr.Zero, format);
         }
 
         #endregion

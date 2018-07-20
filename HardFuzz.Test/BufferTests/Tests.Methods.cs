@@ -1,6 +1,8 @@
-﻿using System;
+﻿using HardFuzz.HarfBuzz.Buffer;
+using HardFuzz.HarfBuzz.Shape;
+using HardFuzz.SharpFont;
 using NUnit.Framework;
-using Buffer = HardFuzz.HarfBuzz.Buffer.Buffer;
+using SharpFont;
 
 namespace HardFuzz.Test.BufferTests
 {
@@ -106,7 +108,24 @@ namespace HardFuzz.Test.BufferTests
         [Test]
         public void SerializeAndDeserialize()
         {
-            throw new NotImplementedException();
+            using (var freetype = new Library())
+            using (var fira = new Face(freetype, Utilities.GetResource(@"FiraSans-Regular.ttf")))
+            using (var font = fira.ToHarfBuzzFont())
+            using (var deserialized = new Buffer())
+            {
+                Buffer.AddUtf("The quick brown The quick brown espan\u0303ol fox jumps over the lazy dog.");
+                Buffer.Shape(font);
+                var serialized = Buffer.Serialize(0, Buffer.Length, 2048, SerializeFormat.Text);
+                TestContext.WriteLine("Serialized: " + serialized);
+
+                TestContext.WriteLine();
+
+                deserialized.Deserialize(serialized, SerializeFormat.Text);
+                var reserialized = deserialized.Serialize(0, deserialized.Length, 2048, SerializeFormat.Text);
+                TestContext.WriteLine("Reserialized: " + reserialized);
+
+                Assert.That(reserialized, Is.EqualTo(serialized));
+            }
         }
     }
 }

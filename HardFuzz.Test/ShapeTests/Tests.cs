@@ -58,7 +58,7 @@ namespace HardFuzz.Test.ShapeTests
         [Test]
         public void Shape()
         {
-            Buffer.AddUtf("The quick brown espan\u0303ol fox jumps over the lazy dog/");
+            Buffer.AddUtf("The quick brown espan\u0303ol fox jumps over the lazy dog.");
             Buffer.GuessSegmentProperties();
             var glyphInfoBeforeShaping = Buffer.GlyphInfos.ToArray();
             var glyphPositionsBeforeShaping = Buffer.GlyphPositions.ToArray();
