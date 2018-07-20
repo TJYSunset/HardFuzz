@@ -12,8 +12,8 @@ namespace HardFuzz.PlatformInvoke
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
         public static extern bool hb_feature_from_string(byte[] str, int length, out Feature feature);
 
-        [DllImport(HarfBuzzDll, CallingConvention = Cdecl, CharSet = CharSet.Ansi)]
-        public static extern void hb_feature_to_string(Feature feature, StringBuilder buf, uint size);
+        [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
+        public static extern void hb_feature_to_string(Feature feature, IntPtr buf, uint size);
 
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
         public static extern void hb_shape(IntPtr font, IntPtr buffer,

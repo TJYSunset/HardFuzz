@@ -28,9 +28,16 @@ namespace HardFuzz.HarfBuzz
         public override string ToString()
         {
             const int allocatedSize = 128;
-            var str = new StringBuilder(allocatedSize);
-            Api.hb_feature_to_string(this, str, allocatedSize);
-            return str.ToString();
+            var buffer = Marshal.AllocHGlobal(allocatedSize);
+            try
+            {
+                Api.hb_feature_to_string(this, buffer, allocatedSize);
+                return Marshal.PtrToStringAnsi(buffer, allocatedSize);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(buffer);
+            }
         }
     }
 }

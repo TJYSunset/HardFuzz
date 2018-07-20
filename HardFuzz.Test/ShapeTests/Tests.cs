@@ -45,6 +45,7 @@ namespace HardFuzz.Test.ShapeTests
         {
             var feature = new Feature("valt");
             Assert.That(feature.Tag.ToString(), Is.EqualTo("valt"));
+            TestContext.WriteLine("feature.ToString(): " + feature);
             Assert.That(new Feature(feature.ToString()).Tag.ToString(), Is.EqualTo("valt"));
         }
 
