@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardFuzz", "HardFuzz\HardFuzz.csproj", "{4072C245-B47D-4119-8464-017A5BC8AAD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardFuzz.Test", "HardFuzz.Test\HardFuzz.Test.csproj", "{BEC77CA3-4026-400C-B09F-59F9130B3FA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardFuzz.SharpFont", "HardFuzz.SharpFont\HardFuzz.SharpFont.csproj", "{40A3A3FA-6862-4815-8C16-C39BA5507F89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4072C245-B47D-4119-8464-017A5BC8AAD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4072C245-B47D-4119-8464-017A5BC8AAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4072C245-B47D-4119-8464-017A5BC8AAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4072C245-B47D-4119-8464-017A5BC8AAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC77CA3-4026-400C-B09F-59F9130B3FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC77CA3-4026-400C-B09F-59F9130B3FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC77CA3-4026-400C-B09F-59F9130B3FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC77CA3-4026-400C-B09F-59F9130B3FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A3A3FA-6862-4815-8C16-C39BA5507F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A3A3FA-6862-4815-8C16-C39BA5507F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A3A3FA-6862-4815-8C16-C39BA5507F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A3A3FA-6862-4815-8C16-C39BA5507F89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
