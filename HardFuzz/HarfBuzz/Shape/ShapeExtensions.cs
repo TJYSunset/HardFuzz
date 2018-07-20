@@ -24,7 +24,7 @@ namespace HardFuzz.HarfBuzz.Shape
         ///     Shapes <paramref name="buffer" /> using font turning its Unicode characters content to positioned glyphs.
         ///     If <paramref name="features" /> is not empty, it will be used to control the features applied during
         ///     shaping.
-        ///     If <see cref="shapers" /> is not empty, the specified shapers will be used in the given order, otherwise
+        ///     If <paramref cref="shapers" /> is not empty, the specified shapers will be used in the given order, otherwise
         ///     the default shapers list will be used.
         /// </summary>
         /// <param name="font"></param>
