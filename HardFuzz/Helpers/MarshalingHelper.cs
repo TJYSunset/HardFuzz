@@ -16,7 +16,7 @@ namespace HardFuzz.Helpers
             where T : struct
         {
             var advance = Marshal.SizeOf<T>();
-            for (var i = 0; terminationPredicate(Marshal.PtrToStructure<T>(IntPtr.Add(head, i))); i++)
+            for (var i = 0; !terminationPredicate(Marshal.PtrToStructure<T>(IntPtr.Add(head, i))); i++)
                 yield return Marshal.PtrToStructure<T>(IntPtr.Add(head, i * advance));
         }
     }

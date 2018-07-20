@@ -17,7 +17,8 @@ namespace HardFuzz.HarfBuzz.Shape
         /// </summary>
         public static IEnumerable<string> List =>
             Api.hb_shape_list_shapers()
-                .AsUnmanagedArray<IntPtr>(x => x != IntPtr.Zero)
-                .Select(x => Marshal.PtrToStringAnsi(x));
+                .AsUnmanagedArray<IntPtr>(x => x == IntPtr.Zero)
+                .Select(x => Marshal.PtrToStringAnsi(x))
+                .TakeWhile(x => !string.IsNullOrWhiteSpace(x));
     }
 }
