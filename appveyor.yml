@@ -16,7 +16,9 @@ build:
   verbosity: minimal
 deploy:
   provider: NuGet
+  server:
   api_key:
     secure: JuirUr7nSHhd70M6hdS4CPnVUmRby+5gle4SWoMUwessOkuBq0rGQP0/pL0ocX3k
   skip_symbols: false
+  symbol_server:
   artifact: /.*\.nupkg/
