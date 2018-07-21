@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Sunsetware.HardFuzz</id>
+    <version>$version$</version>
+    <title>HardFuzz</title>
+    <authors>TJYSunset</authors>
+    <owners>TJYSunset</owners>
+    <licenseUrl>https://github.com/TJYSunset/HardFuzz/blob/master/COPYING.md</licenseUrl>
+    <projectUrl>https://github.com/TJYSunset/HardFuzz</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>yet another HarfBuzz C# binding</description>
+    <releaseNotes>$version$</releaseNotes>
+    <copyright>Copyright TJYSunset 2018</copyright>
+    <tags>harfbuzz text shaping binding</tags>
+  </metadata>
+  <files>
+    <file src="bin\**\HardFuzz*" target="lib" />
+    <file src="bin\**\*.dll" target="lib" />
+    <file src="bin\**\*.xml" target="lib" />
+  </files>
+</package>

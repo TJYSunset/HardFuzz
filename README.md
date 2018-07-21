@@ -1,7 +1,9 @@
 # HardFuzz
 
-[![Build status](https://ci.appveyor.com/api/projects/status/fhu6f4bjqiu0bj4e/branch/dev?svg=true)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/dev)
-[![Unit test status](https://img.shields.io/appveyor/tests/TJYSunset/hardfuzz/dev.svg)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/dev/tests)
+[![Build status](https://ci.appveyor.com/api/projects/status/fhu6f4bjqiu0bj4e/branch/master?svg=true)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/master)
+[![Unit test status](https://img.shields.io/appveyor/tests/TJYSunset/hardfuzz/master.svg)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/master/tests)
+[![NuGet](https://img.shields.io/nuget/v/Sunsetware.HardFuzz.svg)](https://www.nuget.org/packages/Sunsetware.HardFuzz/)
+[![NuGet](https://img.shields.io/nuget/v/Sunsetware.HardFuzz.svg?label=nuget%3A%20SharpFont%20extension)](https://www.nuget.org/packages/Sunsetware.HardFuzz.SharpFont/)
 
 Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a more complete alternative to [SharpFont.HarfBuzz](https://github.com/Robmaister/SharpFont.HarfBuzz) and [HarfBuzzSharp](https://github.com/mono/SkiaSharp/tree/master/binding).
 
