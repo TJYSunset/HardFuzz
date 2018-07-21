@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text;
 using HardFuzz.HarfBuzz;
 
 // ReSharper disable InconsistentNaming
@@ -12,7 +13,8 @@ namespace HardFuzz.PlatformInvoke
         public static extern bool hb_feature_from_string(byte[] str, int length, out Feature feature);
 
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
-        public static extern void hb_feature_to_string(Feature feature, IntPtr buf, uint size);
+        public static extern void hb_feature_to_string(ref Feature feature,
+            [MarshalAs(UnmanagedType.LPStr)] StringBuilder buf, uint size);
 
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
         public static extern void hb_shape(IntPtr font, IntPtr buffer,
