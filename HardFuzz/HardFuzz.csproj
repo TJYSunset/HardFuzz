@@ -1,5 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>Sunsetware.HardFuzz</PackageId>
+    <Authors>TJYSunset</Authors>
+    <Title>HardFuzz</Title>
+    <Description>yet another HarfBuzz C# binding</Description>
+    <PackageLicenseUrl>https://github.com/TJYSunset/HardFuzz/blob/master/COPYING.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/TJYSunset/HardFuzz</PackageProjectUrl>
+    <PackageTags>harfbuzz text shaping binding</PackageTags>
+  </PropertyGroup>
+  <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
