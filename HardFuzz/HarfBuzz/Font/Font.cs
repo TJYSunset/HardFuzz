@@ -14,6 +14,13 @@ namespace HardFuzz.HarfBuzz.Font
             Handle = handle;
         }
 
+        public Font(Blob.Blob blob, uint index = 0)
+        {
+            var face = Api.hb_face_create(blob.Handle, index);
+            Handle = Api.hb_font_create(face);
+            Api.hb_face_destroy(face);
+        }
+
         /// <summary>
         ///     The pointer to the unmanaged hb_font_t object.
         /// </summary>

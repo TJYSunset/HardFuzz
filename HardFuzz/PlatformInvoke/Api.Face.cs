@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
+
+// ReSharper disable InconsistentNaming
 
 namespace HardFuzz.PlatformInvoke
 {
     internal static partial class Api
     {
-        // todo
+        [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
+        public static extern IntPtr hb_face_create(IntPtr blob, uint index);
 
         [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
-        public static extern IntPtr hb_font_create(IntPtr face);
-
-        [DllImport(HarfBuzzDll, CallingConvention = Cdecl)]
-        public static extern void hb_font_destroy(IntPtr font);
+        public static extern IntPtr hb_face_destroy(IntPtr blob);
     }
 }

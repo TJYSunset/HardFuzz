@@ -28,6 +28,7 @@ Native binaries not included; HarfBuzz provides [official builds](https://github
   + `hb_unicode_funcs_get_default()`
   + `hb_unicode_funcs_destroy()`
 + [hb-buffer](https://harfbuzz.github.io/harfbuzz-Buffers.html) (most of it's end-user-related part)
++ [hb-blob](https://harfbuzz.github.io/harfbuzz-hb-blob.html) (immutable only)
 + [hb-font](https://harfbuzz.github.io/harfbuzz-hb-font.html)
 + [hb-shape](https://harfbuzz.github.io/harfbuzz-Shaping.html)
   + `hb_font_destroy()`
@@ -36,6 +37,7 @@ Native binaries not included; HarfBuzz provides [official builds](https://github
 
 ## Known issue(s)
 
++ FreeType integration doesn't seem to be working, please use blob instead
 + `hb_shape_list_shapers()` is bound using a dirty approach and has potential memory corruption risk
 
 ## Documentation
