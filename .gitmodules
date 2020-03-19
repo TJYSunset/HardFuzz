@@ -1,0 +1,3 @@
+[submodule "SharpFont"]
+	path = SharpFont
+	url = https://github.com/TJYSunset/SharpFont

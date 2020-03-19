@@ -1,6 +1,5 @@
 ﻿using HardFuzz.HarfBuzz.Buffer;
 using HardFuzz.HarfBuzz.Shape;
-using HardFuzz.SharpFont;
 using NUnit.Framework;
 using SharpFont;
 

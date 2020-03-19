@@ -3,7 +3,6 @@ using HardFuzz.HarfBuzz;
 using HardFuzz.HarfBuzz.Buffer;
 using HardFuzz.HarfBuzz.Font;
 using HardFuzz.HarfBuzz.Shape;
-using HardFuzz.SharpFont;
 using NUnit.Framework;
 using SharpFont;
 

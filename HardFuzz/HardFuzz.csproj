@@ -1,81 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <PackageId>Sunsetware.HardFuzz</PackageId>
-    <Authors>TJYSunset</Authors>
-    <Title>HardFuzz</Title>
-    <Description>yet another HarfBuzz C# binding</Description>
-    <PackageLicenseUrl>https://github.com/TJYSunset/HardFuzz/blob/master/COPYING.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/TJYSunset/HardFuzz</PackageProjectUrl>
-    <PackageTags>harfbuzz text shaping binding</PackageTags>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.2</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DocumentationFile>bin\Debug\netstandard2.0\HardFuzz.xml</DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DocumentationFile>bin\Release\netstandard2.0\HardFuzz.xml</DocumentationFile>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-  <ItemGroup>
-    <Content Include="..\Dependencies\freetype6.dll">
-      <Link>freetype6.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\intl.dll">
-      <Link>intl.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libcairo-2.dll">
-      <Link>libcairo-2.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libexpat-1.dll">
-      <Link>libexpat-1.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libffi-5.dll">
-      <Link>libffi-5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libfontconfig-1.dll">
-      <Link>libfontconfig-1.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libglib-2.0-0.dll">
-      <Link>libglib-2.0-0.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libgobject-2.0-0.dll">
-      <Link>libgobject-2.0-0.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libharfbuzz-0.dll">
-      <Link>libharfbuzz-0.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libiconv-2.dll">
-      <Link>libiconv-2.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libintl-8.dll">
-      <Link>libintl-8.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libpng14-14.dll">
-      <Link>libpng14-14.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\libwinpthread-1.dll">
-      <Link>libwinpthread-1.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Dependencies\zlib1.dll">
-      <Link>zlib1.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+
+    <PropertyGroup>
+        <PackageId>Sunsetware.HardFuzz</PackageId>
+        <Authors>TJYSunset</Authors>
+        <Title>HardFuzz</Title>
+        <Description>yet another HarfBuzz C# binding</Description>
+        <PackageLicenseUrl>https://github.com/TJYSunset/HardFuzz/blob/master/COPYING.md</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/TJYSunset/HardFuzz</PackageProjectUrl>
+        <PackageTags>harfbuzz text shaping binding</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\netstandard2.0\HardFuzz.xml</DocumentationFile>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\netstandard2.0\HardFuzz.xml</DocumentationFile>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
 </Project>

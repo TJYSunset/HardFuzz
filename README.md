@@ -3,17 +3,18 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/fhu6f4bjqiu0bj4e/branch/master?svg=true)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/master)
 [![Unit test status](https://img.shields.io/appveyor/tests/TJYSunset/hardfuzz/master.svg)](https://ci.appveyor.com/project/TJYSunset/hardfuzz/branch/master/tests)
 [![NuGet](https://img.shields.io/nuget/v/Sunsetware.HardFuzz.svg)](https://www.nuget.org/packages/Sunsetware.HardFuzz/)
-[![NuGet](https://img.shields.io/nuget/v/Sunsetware.HardFuzz.svg?label=nuget%3A%20SharpFont%20extension)](https://www.nuget.org/packages/Sunsetware.HardFuzz.SharpFont/)
 
 Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a more complete alternative to [SharpFont.HarfBuzz](https://github.com/Robmaister/SharpFont.HarfBuzz) and [HarfBuzzSharp](https://github.com/mono/SkiaSharp/tree/master/binding).
 
-.NET Standard 2.0. Not really tested on environment other than .NET Framework 4.7.1 plus Windows 10 x64 though.
+.NET Standard 2.0. Not really tested on environment other than .NET Core 3.1 plus Windows 10 x64 though.
+
+Native binaries not included; HarfBuzz provides [official builds](https://github.com/harfbuzz/harfbuzz/releases) for 32-bit Windows, while you can get my MinGW 64-bit build [here](HardFuzz.Test/TestData) (don't forget the other DLLs!)
 
 **WIP**.
 
 ## Target HarfBuzz version
 
-1.8.4
+2.6.4
 
 ## What's implemented now
 
@@ -30,7 +31,7 @@ Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a 
 + [hb-font](https://harfbuzz.github.io/harfbuzz-hb-font.html)
 + [hb-shape](https://harfbuzz.github.io/harfbuzz-Shaping.html)
   + `hb_font_destroy()`
-+ [hb-ft](https://harfbuzz.github.io/harfbuzz-hb-ft.html) (utilizing third-party library [SharpFont](https://github.com/Robmaister/SharpFont))
++ [hb-ft](https://harfbuzz.github.io/harfbuzz-hb-ft.html)
   + `hb_ft_font_create()`
 
 ## Known issue(s)
@@ -41,41 +42,9 @@ Yet another [HarfBuzz](https://harfbuzz.github.io) C# binding. Intended to be a 
 
 None at this point. Only some basic XML docs are present. Please refer to [HarfBuzz Manual](https://harfbuzz.github.io/).
 
-### Hello, HardFuzz [(see it in unit tests)](HardFuzz.Test/HelloHarfBuzz.cs)
+## Usage
 
-```c#
-using (var font = someSharpFontFace.ToHarfBuzzFont())
-using (var buffer = new Buffer())
-{
-    buffer.AddUtf("Hello, HarfBuzz");
-    buffer.GuessSegmentProperties();
-    buffer.Shape(font);
-
-    // the two properties are transparently bridged to unmanaged HarfBuzz buffers, thus can be considered costly to get
-    var info = buffer.GlyphInfos.ToArray();
-    var pos = buffer.GlyphPositions.ToArray();
-
-    var cursorX = 0d;
-    var cursorY = 0d;
-    for (var i = 0; i < buffer.Length; i++)
-    {
-        var glyphId = info[i];
-        var xOffset = pos[i].XOffset / 64d;
-        var yOffset = pos[i].YOffset / 64d;
-        var xAdvance = pos[i].XAdvance / 64d;
-        var yAdvance = pos[i].YAdvance / 64d;
-
-        // draw your glyph here
-
-        cursorX += xAdvance;
-        cursorY += yAdvance;
-    }
-}
-```
-
-## Help needed!
-
-Seriously I failed to understand how the **** HarfBuzz and p/invoke work. Asking someone is way too much for my social skills. Pull requests & issues with implementation details will always be welcomed.
+Please refer to the [unit test](HardFuzz.Test/HelloHarfBuzz.cs).
 
 ## To-do
 

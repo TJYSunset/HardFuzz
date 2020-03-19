@@ -36,5 +36,15 @@ namespace HardFuzz.HarfBuzz.Font
         {
             return Handle.GetHashCode();
         }
+
+        /// <summary>
+        ///     Create a font from a FreeType face object.
+        /// </summary>
+        /// <param name="face">Native handle to a FreeType face.</param>
+        /// <returns>A new HarfBuzz Font.</returns>
+        public static Font FromFreeType(IntPtr face)
+        {
+            return new Font(Api.hb_ft_font_create(face, IntPtr.Zero));
+        }
     }
 }

@@ -1,5 +1,5 @@
 version: 0.1.{build}
-image: Visual Studio 2017
+image: Visual Studio 2019
 configuration: Release
 dotnet_csproj:
   patch: true
@@ -17,10 +17,10 @@ build:
 artifacts:
   - path: '**\*.nupkg'
 deploy:
-  provider: NuGet
-  server:
-  api_key:
-    secure: JuirUr7nSHhd70M6hdS4CPnVUmRby+5gle4SWoMUwessOkuBq0rGQP0/pL0ocX3k
-  skip_symbols: false
-  symbol_server:
-  artifact: /.*\.nupkg/
+  - provider: NuGet
+    server:
+    api_key:
+      secure: ccflV/crOw54DXpeWcY4lH+CoITGN++nCbKj8UJ5o2Uei53UUmH+GxDfveg6R78C
+    skip_symbols: false
+    symbol_server:
+    artifact: /.*\.nupkg/

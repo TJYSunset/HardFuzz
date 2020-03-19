@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 
 // ReSharper disable InconsistentNaming
 
-namespace HardFuzz.SharpFont.PlatformInvoke
+namespace HardFuzz.PlatformInvoke
 {
     internal static partial class Api
     {

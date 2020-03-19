@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Text;
+using HardFuzz.HarfBuzz.Font;
+using SharpFont;
+using Encoding = System.Text.Encoding;
 
 namespace HardFuzz.Test
 {
@@ -16,6 +18,11 @@ namespace HardFuzz.Test
             return Path.Combine(
                 Path.GetDirectoryName(typeof(Utilities).Assembly.Location) ??
                 throw new InvalidOperationException(), filename);
+        }
+
+        public static Font ToHarfBuzzFont(this Face face)
+        {
+            return Font.FromFreeType(face.Reference);
         }
     }
 }
