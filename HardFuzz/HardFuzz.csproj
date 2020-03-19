@@ -8,6 +8,7 @@
         <PackageLicenseUrl>https://github.com/TJYSunset/HardFuzz/blob/master/COPYING.md</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/TJYSunset/HardFuzz</PackageProjectUrl>
         <PackageTags>harfbuzz text shaping binding</PackageTags>
+        <PackageVersion>1.0</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup>

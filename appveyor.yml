@@ -1,14 +1,14 @@
-version: 0.1.{build}
+version: 1.0.{build}
 image: Visual Studio 2019
 configuration: Release
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
-  version: '1.1'
-  package_version: '1.1'
-  assembly_version: '1.1'
-  file_version: '1.1'
-  informational_version: '1.1'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
 clone_script:
   - cmd: git clone -q --recurse-submodules --branch=%APPVEYOR_REPO_BRANCH% https://github.com/TJYSunset/HardFuzz %APPVEYOR_BUILD_FOLDER%
   - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
@@ -18,9 +18,6 @@ build:
   project: HardFuzz.sln
   publish_nuget: true
   verbosity: minimal
-before_test:
-  - ps: cp C:\projects\hardfuzz\HardFuzz.Test\TestData\* C:\projects\hardfuzz\HardFuzz.Test\bin\Release\netcoreapp3.1\
-  - ps: ls C:\projects\hardfuzz\HardFuzz.Test\bin\Release\netcoreapp3.1\
 artifacts:
   - path: '**\*.nupkg'
 deploy:
