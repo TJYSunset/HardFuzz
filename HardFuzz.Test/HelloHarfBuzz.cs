@@ -7,6 +7,7 @@ using HardFuzz.HarfBuzz.Font;
 using HardFuzz.HarfBuzz.Shape;
 using NUnit.Framework;
 using SharpFont;
+using Face = HardFuzz.HarfBuzz.Face.Face;
 using Buffer = HardFuzz.HarfBuzz.Buffer.Buffer;
 
 namespace HardFuzz.Test
@@ -19,15 +20,15 @@ namespace HardFuzz.Test
         [SuppressMessage("ReSharper", "NotAccessedVariable")]
         public void TestFreeType()
         {
-            Assert.Inconclusive(); // make AppVeyor happy
             var faceHandleProperty = typeof(Face).GetProperty(@"Reference",
                 BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
             using var freetype = new Library();
-            using var fira     = new Face(freetype, Utilities.GetResource(@"FiraSans-Regular.ttf"));
-            using var font     = fira.ToHarfBuzzFont();
-            using var buffer   = new Buffer();
-            buffer.AddUtf("Hello, HarfBuzz");
+            using var fira     = new SharpFont.Face(freetype, Utilities.GetResource(@"FiraSans-Regular.ttf"));
+            fira.SetPixelSizes(72, 72);
+            using var font   = fira.ToHarfBuzzFont();
+            using var buffer = new Buffer();
+            buffer.AddUtf("Helo, HarfBuzz");
             buffer.GuessSegmentProperties();
             buffer.Shape(font);
             var info    = buffer.GlyphInfos.ToArray();
@@ -54,8 +55,10 @@ namespace HardFuzz.Test
         [SuppressMessage("ReSharper", "NotAccessedVariable")]
         public void TestBlob()
         {
-            using var fira   = new Blob(File.ReadAllBytes(Utilities.GetResource(@"FiraSans-Regular.ttf")));
-            using var font   = new Font(fira);
+            using var fira = new Blob(File.ReadAllBytes(Utilities.GetResource(@"FiraSans-Regular.ttf")));
+            using var face = new Face(fira);
+            using var font = new Font(face);
+            font.Scale = (72 * 64, 72 * 64);
             using var buffer = new Buffer();
             buffer.AddUtf("Hello, HarfBuzz");
             buffer.GuessSegmentProperties();

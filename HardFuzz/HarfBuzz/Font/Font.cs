@@ -14,17 +14,38 @@ namespace HardFuzz.HarfBuzz.Font
             Handle = handle;
         }
 
-        public Font(Blob.Blob blob, uint index = 0)
+        public Font(Face.Face face)
         {
-            var face = Api.hb_face_create(blob.Handle, index);
-            Handle = Api.hb_font_create(face);
-            Api.hb_face_destroy(face);
+            Handle = Api.hb_font_create(face.Handle);
         }
 
         /// <summary>
         ///     The pointer to the unmanaged hb_font_t object.
         /// </summary>
         public IntPtr Handle { get; }
+
+        public (int x, int y) Scale
+        {
+            get
+            {
+                Api.hb_font_get_scale(Handle, out var x, out var y);
+                return (x, y);
+            }
+            set => Api.hb_font_set_scale(Handle, value.x, value.y);
+        }
+
+        /// <remarks>
+        ///     A zero value means "no hinting in that direction"
+        /// </remarks>
+        public (uint x, uint y) Ppem
+        {
+            get
+            {
+                Api.hb_font_get_ppem(Handle, out var x, out var y);
+                return (x, y);
+            }
+            set => Api.hb_font_set_ppem(Handle, value.x, value.y);
+        }
 
         /// <inheritdoc />
         public void Dispose()
